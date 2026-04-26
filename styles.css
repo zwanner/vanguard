@@ -153,7 +153,14 @@ nav h2 {
     animation: none;
 }
 
-summary {
+.nav-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.nav-toggle-label {
     display: inline-block;
     width: 2.25rem;
     height: 2rem;
@@ -161,11 +168,10 @@ summary {
     color: transparent;
     font-size: 0;
     cursor: pointer;
-    list-style: none;
     position: relative;
 }
 
-summary::after {
+.nav-toggle-label::after {
     content: "☰";
     color: var(--white);
     display: block;
@@ -179,16 +185,12 @@ nav ul {
     display: none;
 }
 
-details[open] {
-    width: 100%;
-}
-
-details[open] ul {
+.nav-toggle:checked ~ ul {
     display: grid;
     padding: 1rem 0 1.25rem;
 }
 
-details[open] li {
+.nav-toggle:checked ~ ul li {
     text-align: center;
 }
 
@@ -255,7 +257,7 @@ p {
 
 #innovation .container {
     max-width: 360px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(10px);
 }
 
 #innovation h2 {
@@ -504,21 +506,188 @@ address a {
 }
 
 
-/* MEDIA QUERIES (MEDIUM) */ 
+/* MEDIA QUERIES (MEDIUM) */
+@media (min-width: 800px) {
+    .container {
+        width: 88%;
+    }
+
+    header .container {
+        flex-wrap: nowrap;
+        min-height: 115px;
+    }
+
+    #logo {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    h1::after {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex: 0 1 auto;
+    }
+
+    .nav-toggle,
+    .nav-toggle-label {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        align-items: center;
+        /* gap: 2.5rem; */
+        padding: 0;
+    }
+
+    nav li {
+        text-align: left;
+    }
+
+    nav a {
+        height: auto;
+        padding: 1rem;
+        color: var(--blue);
+        font-size: 1.25rem;
+    }
+
+    nav a:hover {
+        background-color: var(--blue);
+        color: var(--black);
+    }
+
+    #innovation {
+        min-height: 750px;
+        background-position: center top;
+    }
+
+    #innovation .container {
+        max-width: 740px;
+        padding-top: 1rem;
+    }
+
+    #innovation h2 {
+        font-size: 2rem;
+    }
+
+    #innovation p {
+        font-size: 1rem;
+    }
+
+    #about {
+        padding: 2.5rem 0 2rem;
+    }
+
+    #about h2,
+    #services h2,
+    #results h2,
+    #results h3,
+    #contact h2 {
+        margin-left: 0;
+    }
+
+    #about h2,
+    #services h2,
+    #results h2,
+    #contact h2 {
+        font-size: 2.1rem;
+    }
+
+    #services {
+        padding: 1rem 0 5rem;
+    }
+
+    #services .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem 1.25rem;
+    }
+
+    #services h2 {
+        grid-column: 1 / -1;
+    }
+
+    #services article {
+        min-height: 150px;
+        margin: 0;
+        padding: 2rem;
+    }
+
+    #services article h3 {
+        font-size: 1.45rem;
+    }
+
+    #services article p {
+        font-size: 0.95rem;
+    }
 
     #results {
+        padding: 3rem 0 2rem;
+    }
+
+    #results .container {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 1rem 2rem;
+        align-items: start;
     }
-    .results-container {
-        flex-direction: row;
-        justify-content: space-between;
+
+    #results h2,
+    #results > .container > p {
+        grid-column: 1 / -1;
     }
-    .results-table {
-        width: 50%;
+
+    #results > .container > p {
+        max-width: none;
+        margin-left: 0;
     }
-    .bar-chart {
-        width: 50%;
+
+    #profits {
+        margin-bottom: 0;
     }
+
+    #growth h3 {
+        margin-bottom: 2.75rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 1.25rem 0.75rem;
+    }
+
+    #bar-chart {
+        height: 330px;
+        padding-top: 0;
+        padding-bottom: 1.75rem;
+    }
+
+    .bar {
+        width: 55px;
+    }
+
+    #contact {
+        padding: 2.5rem 0 3rem;
+    }
+
+    #contact p {
+        margin-left: 0;
+        font-size: 0.95rem;
+    }
+
+    input {
+        min-height: 52px;
+    }
+
+    textarea {
+        min-height: 135px;
+    }
+}
 
 
 /* MEDIA QUERIES (LARGE) */
