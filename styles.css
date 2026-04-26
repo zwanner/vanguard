@@ -65,6 +65,18 @@ table {
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+html {
+    min-width: 400px;
+}
+
+body {
+    min-width: 400px;
+    font-family: var(--font);
+    color: var(--black);
+    background: var(--black);
+    line-height: 1.5;
+}
+
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -73,27 +85,292 @@ table {
     margin: 0 auto;
 }
 
+header {
+    background: var(--black);
+    border-bottom: 8px solid var(--blue);
+    color: var(--blue);
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    min-height: 92px;
+}
+
+h1 {
+    order: 2;
+    color: var(--blue);
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 0;
+}
+
+h1::after {
+    content: "Vanguard";
+    font-size: 1.65rem;
+}
+
+#logo {
+    order: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    animation: logoFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.4rem);
+    }
+}
+
+nav {
+    order: 3;
+    margin-left: auto;
+    flex: 1 1 auto;
+    text-align: right;
+}
+
+nav h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    animation: none;
+}
+
+summary {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2rem;
+    overflow: hidden;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+}
+
+summary::after {
+    content: "☰";
+    color: var(--white);
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+}
+
+nav ul {
+    display: none;
+}
+
+details[open] {
+    width: 100%;
+}
+
+details[open] ul {
+    display: grid;
+    padding: 1rem 0 1.25rem;
+}
+
+details[open] li {
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    color: var(--blue);
+    font-weight: 800;
+    text-decoration: none;
+    height: 40px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--blue);
+    color: var(--black);
+}
+
+h2,
+h3 {
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    animation: fadeDropIn 1.5s ease-out both;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.85rem;
+}
+
+@keyframes fadeDropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
+#innovation {
+    background: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.68)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     display: grid;
     place-items: center;
     text-align: center;
-    padding: 1rem;
+    min-height: 610px;
+    color: var(--white);
     overflow: hidden;
 }
 
-/* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
-    content: "";
-
-    left:-.5rem;
-    width: 3.75rem;
-    height: 3.75rem;
-    background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+#innovation .container {
+    max-width: 360px;
+    backdrop-filter: blur(4px);
 }
+
+#innovation h2 {
+    font-size: 1.65rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+#innovation p {
+    margin-bottom: 1.25rem;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+#innovation a {
+    display: inline-block;
+    padding: 0.95rem 1.35rem;
+    border-radius: 6px;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#innovation-button {
+    animation: fadeDropIn 1.5s ease-out both;
+}
+
+#innovation a:hover {
+    background: var(--red);
+    transform: scale(1.1);
+}
+
+#about,
+#services {
+    background: var(--white);
+}
+
+#about {
+    padding: 2rem 0 1.5rem;
+}
+
+#services {
+    padding: 1rem 0 3rem;
+}
+
+#services h2 {
+    margin-left: 0.75rem;
+}
+
+#services article {
+    margin: 0 0 1rem;
+    padding: 1.55rem 1.25rem;
+    border-radius: 6px;
+    background: var(--blue);
+    color: var(--white);
+    transition: transform 0.3s ease;
+}
+
+#services article:hover {
+    transform: translateY(-5px);
+}
+
+#services article p {
+    font-size: 0.88rem;
+}
+
+#results {
+    padding: 2.5rem 0 1.7rem;
+    background: var(--blue);
+    color: var(--white);
+}
+
+#results h2,
+#results h3 {
+    margin-left: 0.75rem;
+}
+
+#results > .container > p {
+    margin: 0 0 1.5rem 0.75rem;
+    max-width: 360px;
+}
+
+#profits {
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    color: var(--white);
+    background: var(--black);
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 1.15rem 0.65rem;
+    border: 1px solid var(--charcoal);
+}
+
+th {
+    font-weight: 800;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--charcoal);
+}
+
+#growth h3 {
+    margin-bottom: 1.5rem;
+}
+
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -113,7 +390,7 @@ table {
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
+    transition: height 1s ease-in-out;
     height: 0;
 }
 /* THIS ONE IS DONE FOR YOU */
@@ -138,6 +415,92 @@ table {
 /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
 .bar {
     animation: stepUp 1s ease-in-out forwards;
+}
+
+#contact,
+footer {
+    background: var(--black);
+    color: var(--white);
+}
+
+#contact {
+    padding: 2rem 0 2.75rem;
+}
+
+#contact h2 {
+    margin-left: 0.75rem;
+}
+
+#contact p {
+    margin: 0 0 1rem 0.75rem;
+    font-size: 0.83rem;
+}
+
+form {
+    display: grid;
+    gap: 0.45rem;
+}
+
+label {
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.65rem;
+    border: 3px solid var(--blue);
+    background: var(--white);
+    color: var(--black);
+    font: inherit;
+    font-size: 1rem;
+}
+
+input {
+    min-height: 44px;
+}
+
+textarea {
+    min-height: 98px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 1rem;
+    border: 0;
+    border-radius: 7px;
+    background: var(--blue);
+    color: var(--white);
+    font: inherit;
+    font-weight: 800;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: var(--red);
+    transform: scale(1.05);
+}
+
+footer {
+    padding: 1.25rem 0 2rem;
+    text-align: center;
+}
+
+footer p,
+address p {
+    font-size: 0.8rem;
+}
+
+address {
+    font-style: normal;
+}
+
+address a {
+    color: var(--blue);
 }
 
 
